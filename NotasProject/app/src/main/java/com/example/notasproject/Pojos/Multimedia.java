@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class Multimedia implements Serializable {
 
-    int _id;
-    String nombre;
-    String direccion;
-    int tipo;
-    String descripcion;
+    private int _id;
+    private String nombre;
+    private String direccion;
+    private int tipo;
+    private String descripcion;
 
     public Multimedia() {
     }

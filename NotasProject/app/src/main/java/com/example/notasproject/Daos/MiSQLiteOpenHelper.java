@@ -15,8 +15,6 @@ public class MiSQLiteOpenHelper extends SQLiteOpenHelper {
     public static final String TABLE_MULTIMEDIA_NAME = "MULTIMEDIA";
     public static final String TABLE_NOTAS_RECORDATORIOS_NAME="NOTAS_RECORDATORIOS";
 
-
-
     public static final String[] COLUMNS_NOTAS = {"_id","nombre","descripcion"};
     public static final String[] COLUMNS_RECORDATORIOS = {"_id","nombre","fecha","hora"};
     public static final String[] COLUMNS_MULTIMEDIA = {"_id","nombre","direccion","tipo","descripcion"};
@@ -40,7 +38,7 @@ public class MiSQLiteOpenHelper extends SQLiteOpenHelper {
             + COLUMNS_MULTIMEDIA[3] + " INTEGER not null, "
             + COLUMNS_MULTIMEDIA[4] + " TEXT null );";
 
-    private static final String TAABLE_NOTAS_RECORDATORIOS = "CREATE TABLE " + TABLE_NOTAS_RECORDATORIOS_NAME + " ("
+    private static final String TABLE_NOTAS_RECORDATORIOS = "CREATE TABLE " + TABLE_NOTAS_RECORDATORIOS_NAME + " ("
             + COLUMNS_NOTAS_RECORDATORIOS[0] + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMNS_NOTAS_RECORDATORIOS[1] + " INTEGER not null, "
             + COLUMNS_NOTAS_RECORDATORIOS[2] + " INTEGER not null, "
@@ -59,6 +57,9 @@ public class MiSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(TABLE_NOTAS);
+        sqLiteDatabase.execSQL(TABLE_RECORDATORIOS);
+        sqLiteDatabase.execSQL(TABLE_MULTIMEDIA);
+        sqLiteDatabase.execSQL(TABLE_NOTAS_RECORDATORIOS);
 
     }
 
